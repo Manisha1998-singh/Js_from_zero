@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div>Here we are using settimeout method in javascript</div>
+        <p>THis is our 12 day of javascript basic classes.</p>
+        <script>
+            // var a;
+            // a  = setTimeout(fun, 2000);
+            // function fun(){
+            //     alert("hii manisha");
+            // }
+            var a = setTimeout(fun1, 2000);  
+            
+            function fun1(){
+                var w1 = window.open();
+                w1.document.write(" <h2> Welcome to the javaTpoint.com </h2>");  
+                setTimeout(function(){w1.close()}, 2000);
+
+            }
+        </script>
+    </body>
+</html>

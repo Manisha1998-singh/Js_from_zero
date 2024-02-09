@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body>
+        <!-- Accessing field value by document object -->
+         <form name="form">
+            <label>Name</label>
+            <input type="text" id="=UserName" name="username" placeholder="enter your name">
+            <button  onclick="abc()">Submit</button><br>
+        <!-- document.getElementById() method -->
+            <label>Number</label>
+            <input type="number" id="number" name="number" placeholder="enter your number">
+            <button  onclick="getcube()">Submit</button>
+        </form>        
+         <script type="text/javascript">
+              function getcube(){
+             var name = document.form.username.value;
+                 alert("Welcome: "+name);  
+             }
+           
+            function getcube(){
+                var number = document.getElementById("number").value;
+                alert(number * number * number); 
+            }            
+                </script>  
+
+        
+
+        
+    </body>
+</html>

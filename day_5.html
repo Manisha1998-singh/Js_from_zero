@@ -1,0 +1,68 @@
+
+<html>
+    <body>  
+        <form name="myform"  onsubmit="return validateform()" >  
+        <label id="errorMsg" style="color: red;"></label>
+        Name: <input type="text" name="name"><br/>  
+        Number: <input type="text" name="num"><span id="numloc"></span><br/>  
+        Email: <input type="text" name="email"><br/>  
+        Password: <input type="password" name="password"><br/>  
+        Re-enter Password:<input type="password" name="password2"/><br/>  
+        <input type="submit" value="register">  
+        </form>  
+        </body>
+
+        <script>  
+            
+        function validateform() {  
+        var name = document.myform.name.value;  
+        var password1 = document.myform.password.value;  
+        var num = document.myform.num.value;  
+        var email = document.myform.email.value;  
+        var password2 = document.myform.password2.value; 
+        var x=document.myform.email.value;  
+        var atposition=x.indexOf("@");  
+        var dotposition=x.lastIndexOf(".");  
+
+        var errorMsg = document.getElementById("errorMsg");  // Use getElementById to get the element by ID
+        
+        errorMsg.innerText = "";  // Reset error message on each submit
+
+         if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+            errorMsg.innerText = 'Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition.'; 
+         return false;  
+         }
+        
+
+        if (name == null || name.trim() === "") {  
+            errorMsg.innerText = "Name can't be blank";  
+            return false;  
+        }
+         if (password1.length < 6) {  
+            errorMsg.innerText = "Password must be at least 6 characters long."; 
+            return false;  
+           }
+              if (password1 !== password2) {  
+            errorMsg.innerText = "Passwords should be the same."; 
+            return false;  
+        } 
+
+        if (isNaN(num)){  
+            errorMsg.innerText = "number should be the digit."; 
+            return false;  
+          }else{  
+             return true;  
+              }  
+}  
+        // else {
+        //     // Additional validations for num and email can be added here if needed
+        //     // ...
+
+        //     errorMsg.innerText = "Registration successful.";
+        //     return true;  // Submit the form
+        // } 
+    
+               
+            </script>  
+</html>
+    

@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <script>
+             //JavaScript Object by object literal
+             human = {name: "rahul",gender:"male",color:"white" }
+             console.log(human.name);
+               //document.write(emp.id+" "+emp.name+" "+emp.salary);  
+               //emp={id:102,name:"Shyam Kumar",salary:40000}  
+              //document.write(emp.id+" "+emp.name+" "+emp.salary); 
+     
+            //JavaScript Object By creating instance of Object
+            
+            var obj1 = new Object();
+            obj1.name = "manisha";
+            obj1.gender = "female";
+            console.log(obj1.name  + " " + obj1.gender );
+
+            //JavaScript Object By using an Object constructor
+
+            function object2(id,name,salary){
+                this.id = id;
+                this.name = name;
+                this.salary = salary;
+
+            }
+            newObj = new object2(2, "nisha", 30000)
+            console.log(newObj.id);
+        </script>
+    </body>
+</html>

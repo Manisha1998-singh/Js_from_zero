@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form id="sform">
+        <div>JavaScript continue</div>
+        <p id = "para"></p>
+        name <input type="text"><br>
+        age <input type="text"><br>
+         <button id="save">Submit</button>
+         <!-- For setattributes. -->  
+        <button id="resetp" onclick="frest()">Reset</button> 
+        <!-- For setinterval/clearinterval. -->
+        <button onclick = "stop()"> Stop </button>  
+        
+        
+        
+        
+    </form>
+        <script>
+        var x = 10;
+        var res = " ";
+        for(x= 10; x <= 100; x++){
+           
+            if(x == 20){
+                continue;
+            }
+          res += "this is the x value" + " "  + x  + "<br>";
+           
+        }
+        console.log(x);
+        console.log("hii manisha");
+        document.getElementById("para").innerHTML = res;
+        function frest(){
+        document.getElementById("sform").reset();
+        document.getElementById("resetp").setAttribute("disabled", true);
+        
+        }
+        <!-- For setinterval/clearinterval. -->
+       var a;
+       a = setInterval(fun1, 9000);
+       function fun1(){
+        alert("1");
+
+       }
+       function stop(){
+        clearInterval(a);
+       }
+    </script>
+    </body>
+</html>

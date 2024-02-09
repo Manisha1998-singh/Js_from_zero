@@ -1,0 +1,61 @@
+<html>
+    <head>
+      <title></title>
+    </head>
+    <body>
+            <div class="div-edit">Hii Manisha</div>
+            <div class="div-edit">Hii Shilpa </div>
+            <div class="div-edit"> Hii Anjali</div>
+            <div id="divDdit">Hii monkyyy</div>
+            Name: <input type="text" name="value1">
+            Number: <input type="text" name="value1">
+            Gender-
+            male: <input type="radio" name="value1">
+            female: <input type="radio" name="value1">
+            <button type="submit" onclick="getName()"> Submit  </button>
+
+            <script type="text/javascript">
+              var element = document.getElementsByClassName('div-edit');
+              console.log(element);
+              // Add a new element dynamically
+               var newElement = document.createElement('div');
+                newElement.className = 'div-edit';
+               newElement.textContent = 'hii Monika';
+              document.body.appendChild(newElement);
+                console.log(element);
+            // var element1 = document.getElementById('divDdit');
+            //   console.log(element1);
+              // Add a new element dynamically
+            //   var newelement1 = document.createElement('div');
+            //   newelement1.id = 'divDdit';
+            //   newElement1.textContent = 'hii Manuu';
+            //    document.body.appendChild(newElement1);
+            //     console.log(element);
+
+                // var elememtquery = document.querySelectorAll('.div-edit');
+                // console.log(elememtquery);
+                // Add a new element dynamically
+                // var nwelememtquery = document.createElement('div');
+                // nwelememtquery.className = 'div-edit';
+                // nwelememtquery.textContent = 'hii pooja';
+                // document.body.appendChild(nwelememtquery);
+                // console.log(element);
+
+                //Javascript - document.getElementsByName() method
+                function getName(){
+                    var nameValue = document.getElementsByName('value1');
+                    alert(nameValue.length);
+                    var nameTag = document.getElementsByTagName('div');
+                    console.log(nameTag.length);
+
+                }
+            
+               
+            
+
+
+            </script>
+            
+    </body>
+    
+</html>

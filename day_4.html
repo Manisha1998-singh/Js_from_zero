@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+            Learn about inntertext.
+        </title>
+    </head>
+    <body>
+    <h3>Login</h3>
+    <br>
+    <label class="text-danger" id="errorMsg" style="color: red;"></label><br><br>
+    <label>Name</label>
+    <input type="text" id="input1">
+    <br><br>
+    <label>Password</label>
+    <input type="password" id="input2"><br><br>
+    <button type="submit" onclick="submit()" >Login</button>
+    <script type="text/javascript">
+     function submit(){
+          var input1 = document.getElementById("input1").value;
+          var input2 = document.getElementById("input2").value;
+        if(input1 === '' || input2 === '') {
+            document.getElementById("errorMsg").innerText = 'Please enter all the requirements.'
+          
+            
+        } else {
+            document.getElementById("errorMsg").innerText = 'Thank you.'
+            
+        }
+        
+     }
+        
+
+    </script>
+
+    </body>
+</html>

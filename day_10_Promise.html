@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>JavaScript Promise</title>
+    </head>
+    <body>
+        <script>
+            // var apromise = new Promise(function(resolve, reject){
+            //     var p = 4 + 10;
+            //     if(p == 13 ){
+            //         resolve("excuted and reslove successfully");
+            //     }
+            //     else{
+            //         reject("rejected");
+            //     }
+            // });
+            // apromise.then(function(promResolve){
+            //     document.write("promise is " + promResolve);
+            // })
+            // .catch(function(promReject){
+            //     document.write("promise is " + promReject)
+            // });
+
+
+            var xyz = new Promise(function(resolve){
+             
+                resolve("hii manisha");
+
+                
+            });
+
+            xyz.then(function(promResolve){
+                document.write(promResolve);
+         })
+             .catch(function(promReject){
+                 document.write("promise is " + promReject)
+             });
+        </script>
+    </body>
+</html>
