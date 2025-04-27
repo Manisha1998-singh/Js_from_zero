@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous" />
+  </head>
+  <body>
+    <style></style>
+    <div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+      <div class="card" style="width: 50%">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <input
+              class="form-control mr-sm-2 d-inline mt-1"
+              type="search"
+              id="countryInput"
+              placeholder="Enter country name"
+              placeholder="Search"
+              aria-label="Search"
+              style="width: 74%" />
+            <button
+              class="btn btn-primary w-25"
+              id="searchButton"
+              type="submit">
+              Search
+            </button>
+          </div>
+
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", function () {
+          let countryInput = document
+            .getElementById("countryInput")
+            .value.trim();
+          if (countryInput === "") {
+            alert("Please enter some thing");
+          }
+          fetch(`https://restcountries.com/v3.1/name/${countryInput}`)
+            .then((response) => response.json())
+            .then((data) => {
+              let country = data[0];
+              document.getElementById(
+                "result"
+              ).innerHTML = `<h2>${country.name.common}</h2> <p><strong>Capital:</strong> ${country.capital}</p> <p><strong>Region:</strong> ${country.region}</p> 
+              <p><strong>Population:</strong> ${country.population}</p> <img src="${country.flags.png}" width="150" alt=Flag> `;
+            })
+            .catch((error) => {
+              console.log(error);
+              document.getElementById("result").innerHTML =
+                "Country not found!";
+            });
+        });
+    </script>
+  </body>
+</html>

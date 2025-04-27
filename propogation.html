@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Propagation Demo</title>
+<style>
+  .outer {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    padding: 20px;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="outer">
+  <div class="inner">
+    Click me!
+  </div>
+</div>
+
+<script>
+  document.querySelector('.outer').addEventListener('click', function(event) {
+    console.log('Outer div clicked.');
+  });
+
+  document.querySelector('.inner').addEventListener('click', function(event) {
+    console.log('Inner div clicked.');
+    // Uncomment one of the following lines to see the difference between stopPropagation() and stopImmediatePropagation()
+
+    event.stopPropagation(); // Stops propagation but allows other listeners on the same element to execute.
+     event.stopImmediatePropagation(); // Stops propagation and prevents other listeners on the same element from being called.
+  });
+</script>
+
+</body>
+</html>
