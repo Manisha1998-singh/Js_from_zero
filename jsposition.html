@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="" style="position: relative">
+      <button id="btnsave" onclick="clickme();" style="position: relative">
+        save
+      </button>
+      <div id="divShow" style="display: none">
+        manishaaa sinfgg <br />
+        shilpa <br />
+        anjali <br />
+        nfjsdgn<br />
+        k kefw<br />
+      </div>
+    </div>
+    <script>
+      function clickme() {
+        var btnsave = document.getElementById("btnsave");
+        var divShow = document.getElementById("divShow");
+        var rect = btnsave.getBoundingClientRect();
+        divShow.style.display = "block";
+        divShow.style.position = "absolute";
+        divShow.style.top = `${rect.bottom + window.scrollY + 10}px`;
+        divShow.style.left = `${rect.left + window.scrollX + 10}px`;
+        // Show the div
+        divShow.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

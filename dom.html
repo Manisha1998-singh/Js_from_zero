@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM learning</title>
+  </head>
+  <style>
+    .bg-black {
+      background-color: black !important;
+      color: #fff;
+    }
+  </style>
+  <body class="bg-black">
+    <div class="bg-black">
+      <h1 id="title" class="heading">
+        Dom Learing <span style="display: none">my js from zero</span> on chai
+        aur code
+      </h1>
+      <h1>jdfsf</h1>
+      <h1>jdfsf</h1>
+      <h2>tamil</h2>
+      <h2>jdfsf</h2>
+      <p>manisha</p>
+    </div>
+    <ul>
+      <li class="list-item">one</li>
+      <li class="list-item">two</li>
+      <li class="list-item">three</li>
+      <li class="list-item">four</li>
+    </ul>
+    <div class="parent">
+      <div class="day">Monday</div>
+      <div class="day">tuesday</div>
+      <div class="day">wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    // const div = document.createElement("div");
+    // console.log(div);
+    // div.className = "main";
+    // div.id = math.random(math.random() * 10 + 1);
+    const parent = document.querySelector(".parent");
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1]);
+    console.log(parent.children[1].innerHTML);
+    for (let index = 0; index < parent.children.length; index++) {
+      // const element = array[index];
+      console.log(parent.children[index].innerHTML);
+    }
+    parent.children[1].style.color = "red";
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+    const dayOne = document.querySelector(".day");
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+    console.log(parent.childNodes);
+  </script>
+</html>

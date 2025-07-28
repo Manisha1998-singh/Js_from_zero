@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #000; color: #fff">
+    <ul class="language">
+      <li>java</li>
+    </ul>
+  </body>
+  <script>
+    //below way orf append is good way but0 it render from the start to add the li in the end which is not the good way it
+    //it make our application slow
+
+    function addLang(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+    addLang("c");
+    addLang("c++");
+    addLang("js");
+
+    //better way
+    function addOptiLangName(langName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptiLangName("goinggg");
+
+    //Edit way
+
+    const secLangName = document.querySelector("li:last-child");
+    const li = document.createElement("li");
+    li.textContent = "Mojo";
+    secLangName.replaceWith(li);
+
+    //other way Edit way
+    const firstLangName = document.querySelector("li:first-child");
+    firstLangName.outerHTML = "<li>TypeScript</li>";
+
+    //Remove way
+    const lastlandName = document.querySelector("li:last-child");
+    lastlandName.remove();
+  </script>
+</html>
