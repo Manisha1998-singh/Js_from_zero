@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>chai aur javaScript</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    //sayDate();
+
+    let intervalID = null;
+    const sayDate = function () {
+      console.log("hellow manisha " + Date.now());
+    };
+
+    document.querySelector("#start").addEventListener("click", function () {
+      //intervalID = setInterval(sayDate, 1000);
+      if (!intervalID) {
+        //this will prevent multiple intervals from being created
+        intervalID = setInterval(sayDate, 1000);
+      }
+    });
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearInterval(intervalID);
+      intervalID = null;
+    });
+  </script>
+</html>

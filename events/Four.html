@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>chai aur javaScript</h1>
+    <button id="start">start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    let intervalId;
+    //let bgColorInterval = null;
+    const randomHexNumber = function () {
+      const hexNumber = "0123456789abcdef";
+      let color = "#";
+      for (i = 0; i < 6; i++) {
+        color += hexNumber[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+    //console.log(randomHexNumber());
+    const startChangeColor = function () {
+      if (!intervalId) {
+        // better approach by checking
+        intervalId = setInterval(changeBgColor, 1000);
+      }
+
+      function changeBgColor() {
+        document.body.style.backgroundColor = randomHexNumber();
+      }
+    };
+
+    document
+      .querySelector("#start")
+      .addEventListener("click", startChangeColor);
+
+    const stopChangeColor = function () {
+      clearInterval(intervalId);
+      intervalId = null;
+    };
+    document.querySelector("#stop").addEventListener("click", stopChangeColor);
+    //if (!bgColorInterval) {
+
+    //}
+  </script>
+</html>
