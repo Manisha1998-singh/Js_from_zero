@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div id="addedTextsContainer"></div>
+      <button>Edit</button>
+      <button>Delete</button>
+    </div>
+    <div id="showAddDiv" style="display: none">
+      <input type="text" placeholder="text Here" id="textPlace" />
+      <button onclick="deleteText();">Delete</button>
+      <button onclick="saveText();">Save</button>
+    </div>
+    <button onclick="AddTo();">Add</button>
+    <script>
+      var textPlace = document.getElementById("textPlace");
+      var container = document.getElementById("addedTextsContainer");
+      var saveTexts = JSON.parse(localStorage.getItem("text")) || [];
+      function displayTexts() {
+        container.innerHTML = "";
+        saveTexts.forEach(function (text, index) {
+          var p = document.createElement("P");
+          p.textContent = text;
+          container.appendChild(p);
+        });
+      }
+      function AddTo() {
+        document.getElementById("showAddDiv").style.display = "inline";
+      }
+      function deleteText() {
+        document.getElementsByTagName("input")[0].value = "";
+      }
+      function saveText() {
+        var addedText = document.getElementById("addedText");
+
+        var text = textPlace.value.trim();
+        if (text !== "") {
+          saveTexts.push(text);
+          localStorage.setItem("text", JSON.stringify(saveTexts));
+          displayTexts();
+        }
+        document.getElementById("showAddDiv").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

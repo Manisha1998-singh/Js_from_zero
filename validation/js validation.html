@@ -1,0 +1,75 @@
+ccc<!DOCTYPE html>
+<html>
+<head>
+ <script   type = "text/javascript" src="validation.js"  ></script> 
+
+
+</head>
+<body>
+
+<h2>JavaScript Validation</h2>
+<!-- Adding function button click  -->
+
+<div>
+  <!-- Name: <input type="text" name="fname"> -->
+  <!-- <input type="submit" value="Submit"  onclick="submit()"> -->
+  <label>Hello Manisha </label>
+  <p id="demo"></p>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <!-- <button  onclick="submit()" >Submit</button>  -->
+  <!-- <input type = "button" onclick = "myfunction()" value = "Display">  
+  <button  onclick="externalButton()">Submit js </button> -->
+</div>
+
+<script>
+
+  // function validateForm() {
+  
+  //   let x = document.forms["myForm"]["fname"].value;
+  //   if (x == "") {
+  //     alert("Name must be filled out");
+  //     return false;
+  //   }
+  // }
+  //  function submit(){
+  //   alert('hiii Manisha');
+  //  }
+  //  function myfunction() {  
+  //    alert("how are you");  
+  //          }  
+  //Deffient kind of function.
+  //Normal Function-
+  // function appleGame(a, b){
+  //      return a+b;
+  // }
+  // appleGame(10, 20);  
+  //Anonymous function - A fubction without name; 
+  var appleGame = function (a, b) { return a + b};
+  document.getElementById("demo").innerHTML = appleGame(10, 20);
+  // const x = function (a, b) {return a * b};
+  // document.getElementById("demo").innerHTML = x(4, 3);
+  //Function hoisting- Is not possible for expression function.
+
+
+
+  //anonymous self-invoking function-always use () for function self invoking-
+ (function(){
+  document.getElementById("demo1").innerHTML = "wake up manisha";
+  console.log("Good morning manisha");
+ })();
+  
+ // To FInd the function parameter length.
+ var paraNumber = function (a, b){
+   return  arguments.length;
+ }
+ paraNumber(10, 20);
+
+ //Arrow function - A fubction without function keyeord, return, curly braces. 
+
+ var chakFunction = (A, B) => A + B;
+ document.getElementById("demo2").innerHTML = chakFunction(23, 45);
+  </script>
+
+</body>
+</html>

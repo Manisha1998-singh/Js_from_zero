@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background: linear-gradient(
+          -45deg,
+          #e3a28e,
+          #3cbce7c7,
+          #8ed3ec,
+          #73d1bb
+        );
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: rgba(1, 5, 20, 0.6);
+        margin: 24px;
+        color: aliceblue;
+        border-radius: 0.4em;
+        padding: 1.5em;
+        width: 100%;
+        max-width: 800px;
+      }
+      P {
+        color: #fff;
+      }
+      div {
+        padding: 10px;
+        text-align: center;
+        background: linear-gradient(rgb(0 0 0));
+        opacity: 0.5;
+        border-radius: 0.4em;
+        padding: 1.5em;
+        width: 90%;
+        max-width: 800px;
+      }
+      button {
+        border-radius: 5px;
+        background-color: #058bdf;
+        color: #fff;
+        padding: 10px 24px;
+        border: 1px solid #fff !important;
+      }
+      .w-100 {
+        width: 100%;
+      }
+      .float-start {
+        float: left;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+    <section>
+      <div>
+        <p class="div-quote" id="divQuote"></p>
+
+        <button id="btnGet">GET</button>
+      </div>
+    </section>
+    <script>
+      var btnGet = document.getElementById("btnGet");
+      var divQuote = document.getElementById("divQuote");
+
+      btnGet.addEventListener("click", function () {
+        fetch("https://qapi.vercel.app/api/random/")
+          .then((response) => response.json())
+          .then((data) => {
+            divQuote.innerHTML = `"${data.quote}" — <i >${data.author} </i>`;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>

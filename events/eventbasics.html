@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html events</title>
+  </head>
+  <body>
+    <style>
+      img {
+        height: 100px;
+      }
+    </style>
+    <h2>Amazing images</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <!-- dont inject in html evnts -->
+          <!-- onclick="alert('nature')" -->
+          <img
+            src="https://thewowstyle.com/wp-content/uploads/2015/01/nature-images..jpg"
+            alt="secrh for image1"
+            id="nature" />
+        </li>
+        <li>
+          <img
+            src="https://www.powertrafic.fr/wp-content/uploads/2023/04/image-ia-exemple.png
+            "
+            alt="secrh for image2"
+            id="innocentGirl" />
+        </li>
+        <li>
+          <img
+            src="https://www.campaignmonitor.com/wp-content/uploads/2021/03/razzle-image_web-1600x1600.jpg"
+            alt="secrh for image3"
+            id="loner" />
+        </li>
+        <li>
+          <img
+            src="https://i.pinimg.com/originals/3d/a7/a1/3da7a11be8bc9b0d08e2098fdd3a5f29.jpg"
+            alt="secrh for image4"
+            id="hanuMan" />
+        </li>
+        <li>
+          <img
+            src="https://i.pinimg.com/originals/2b/73/9b/2b739bab4d0a6f6eee1434c6e4e6942e.jpg"
+            alt="secrh for image5"
+            id="god" />
+        </li>
+        <li><a href="https://google.com" id="google">Google</a></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // Note 1: using this approach is good but it limited in functionality
+    // This is the old way to add an event handler directly to an element.
+    // document.getElementById("nature").onclick = function () {
+    //   alert("nature click");
+    // };
+
+    // Note 3: using this approach is old now its use very rare
+    // The attachEvent() method was used in older versions of IE, and jQuery's .on() method is more modern.
+    //attachEvent( ) method
+    //jquery - on
+
+    // Note 2: using this approach is good and also give more functioanality and features and
+    // Using addEventListener is the recommended way to add events. The event object (e) provides useful info about the event.
+    // 1 == e event object it very imp topic its give brauswer and events
+
+    // Some useful properties of the event object:
+    // type, timestamp,  defaultPrevented, target, toElement, srcElement, currentTarget, clientX, ClientY, screenX, screenY,
+    // altKey,  ctrlKey, shiftkey, keyCode
+
+    // Event bubbling: when an inner tag triggers an event, and the event also triggers on outer tags. 
+    // For example, clicking the nature image also triggers the click event on the entire image list (ul). This is called bubbling.
+
+    // Event capturing: when an event on an outer tag triggers before the inner tag's event. 
+    // For example, clicking the nature image triggers the ul's click event first, then the image's event. This is called capturing.
+
+    // It's important to choose bubbling or capturing based on your needs.
+
+    // Note 4: if we want to stop bubbling and capturing, we need to add stopPropagation() method. 
+    // This will only run the specific event handler and prevent it from propagating further.
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("clicked inside the ul");
+    //   },
+    //   false
+    // );
+    // document.getElementById("nature").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("clicked nature");
+    //     e.stopPropagation();
+    //   },
+    //   false
+    // );
+    // document.getElementById("google").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("clicked googleed");
+    //   },
+    //   false
+    // );
+
+    document.getElementById("images").addEventListener(
+      "click",
+      function (e) {
+        // Log the tag name of the clicked element
+        console.log(e.target.tagName);
+        // Check if the clicked element is an image
+        if (e.target.tagName === "IMG") {
+          // Log the id of the clicked image
+          console.log(e.target.id);
+          // Get the parent <li> element of the image
+          let removeIt = e.target.parentNode;
+          // Remove the <li> element from the DOM
+          removeIt.remove();
+        }
+
+        // Alternative way to remove the element (older method)
+        //removeIt.parentNode.removeChild(removeIt);
+      },
+      false
+    );
+  </script>
+</html>

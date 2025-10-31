@@ -1,0 +1,39 @@
+<html>
+    <head><title></title></head>
+    <body>
+        <div id="divEvnt"></div>
+        <button id="btn">click me</button>
+        <button id="btn1" > Save Me</button>
+        <div id="divSave"> hiii its div click.
+            <p id="svae1">hiii its p tag click.</p>
+        </div>
+        
+        <p id="svae2"></p>
+        <script>
+            document.getElementById("btn").addEventListener("click", fun)
+            //element.addEventListener(event, function, useCapture);  
+               var newElement = document.createElement('div');
+                newElement.className = 'div-edit';
+                newElement.innerText = 'hii manisha';
+                document.body.appendChild(newElement);
+                function fun(){
+                    divEvnt.innerText = 'Click is successful. thank you for clicking me.' 
+                    console.log(element);
+                    
+                }
+                //In this example, we are adding multiple events to the same element.
+                function fun1(){
+                    svae1.innerText = 'Click is successful. thank you for clicking me  manisha fun1. ' 
+                }
+                function fun2(){
+                    svae1.innerText = 'Click is successful. thank you for clicking me manisha fun2.' 
+                }
+                document.getElementById("divSave").addEventListener("dblclick", function() {alert('You have double clicked on div element')}, false)
+
+                document.getElementById("svae1").addEventListener("dblclick", function() {alert('You have double clicked on p element')}, false)
+
+                document.getElementById("btn1").addEventListener("click", fun1)
+                document.getElementById("btn1").addEventListener("click", fun2);
+        </script>
+    </body>
+</html>

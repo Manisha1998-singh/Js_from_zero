@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f36161;
+      }
+
+      .game-container {
+        text-align: center;
+        width: 300px;
+      }
+
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        margin-bottom: 20px;
+      }
+
+      .cell {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #status {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Tic-Tac-Toe</h1>
+      <div id="board" class="board">
+        <div class="cell" data-cell-index="0"></div>
+        <div class="cell" data-cell-index="1"></div>
+        <div class="cell" data-cell-index="2"></div>
+        <div class="cell" data-cell-index="3"></div>
+        <div class="cell" data-cell-index="4"></div>
+        <div class="cell" data-cell-index="5"></div>
+        <div class="cell" data-cell-index="6"></div>
+        <div class="cell" data-cell-index="7"></div>
+        <div class="cell" data-cell-index="8"></div>
+      </div>
+      <div id="status">
+        <p>Player X's Turn</p>
+      </div>
+      <button id="resetBtn">Reset Game</button>
+    </div>
+
+    <script>
+      const board = document.getElementById("board");
+      const cell = document.querySelectorAll(".cell");
+      const status = document.getElementById("status").querySelector("p");
+      const resetBtn = document.getElementById("resetBtn");
+
+      let currentPlayer = "X";
+      let gameActive = true;
+      let stateBoard = ["", "", "", "", "", "", "", "", ""];
+
+      const winConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      function updateBoard() {
+        cell.forEach((cell, index) => {
+          cell.textContent = stateBoard[index];
+        });
+      }
+
+      function handleCellClick(e) {
+        const index = [...cell].indexOf(e.target);
+        if (stateBoard[index] !== "" || !gameActive || currentPlayer !== "X")
+          return;
+
+        stateBoard[index] = "X";
+        updateBoard();
+        checkResult();
+
+        if (gameActive) {
+          currentPlayer = "O";
+          status.textContent = "AI is thinking.....";
+          setTimeout(aiMove, 500);
+        }
+      }
+
+      function aiMove() {
+        // 1. Try to win
+        let move = findBestMove("O");
+        if (move === null) {
+          // 2. Try to block player
+          move = findBestMove("X");
+        }
+        if (move === null) {
+          // 3. Pick a random move
+          const emptyCells = stateBoard
+            .map((val, idx) => (val === "" ? idx : null))
+            .filter((i) => i !== null);
+          move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        }
+
+        if (move !== null) {
+          stateBoard[move] = "O";
+          updateBoard();
+          checkResult();
+          if (gameActive) {
+            currentPlayer = "X";
+            status.textContent = `Player ${currentPlayer}'s turn`;
+          }
+        }
+      }
+
+      function findBestMove(player) {
+        for (let pattern of winConditions) {
+          const [a, b, c] = pattern;
+          const line = [stateBoard[a], stateBoard[b], stateBoard[c]];
+
+          // Count player symbols and empty
+          const playerCount = line.filter((val) => val === player).length;
+          const emptyIndex = line.findIndex((val) => val === "");
+
+          if (playerCount === 2 && emptyIndex !== -1) {
+            // Return the board index of the empty spot
+            return pattern[emptyIndex];
+          }
+        }
+        return null;
+      }
+
+      function checkResult() {
+        for (let pattern of winConditions) {
+          const [a, b, c] = pattern;
+          if (
+            stateBoard[a] &&
+            stateBoard[a] === stateBoard[b] &&
+            stateBoard[a] === stateBoard[c]
+          ) {
+            gameActive = false;
+            status.textContent = `Player ${stateBoard[a]} wins`;
+            return;
+          }
+        }
+
+        if (!stateBoard.includes("")) {
+          status.textContent = "It's a tie";
+          gameActive = false;
+        }
+      }
+
+      function resetGame() {
+        currentPlayer = "X";
+        gameActive = true;
+        stateBoard = ["", "", "", "", "", "", "", "", ""];
+        status.textContent = `Player ${currentPlayer}'s turn`;
+        updateBoard();
+      }
+
+      cell.forEach((cell) => cell.addEventListener("click", handleCellClick));
+      resetBtn.addEventListener("click", resetGame);
+      updateBoard();
+    </script>
+  </body>
+</html>

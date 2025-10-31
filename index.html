@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title> </title>
+    <link href="./custom.css" rel="stylesheet" />
+  </head>
+  <body>
+    <style>
+      .div-outer {
+        background-color: #fff;
+        float: left;
+        margin-top: 20px;
+      }
+      .line-1,
+      .line-2,
+      .line-3 {
+        width: 35px;
+        height: 5px;
+        margin-bottom: 5px;
+        background-color: #000;
+        transition: 0.4s;
+      }
+      .icon-click .line-1 {
+        transform: translate(0, 15px) rotate(44deg);
+      }
+      .icon-click .line-3 {
+        transform: translate(0, -5px) rotate(-40deg);
+      }
+      .icon-click .line-2 {
+        opacity: 0;
+      }
+    </style>
+    <div class="div-outer" onclick="onIncon(this)">
+      <div class="line-1"></div>
+      <div class="line-2"></div>
+      <div class="line-3"></div>
+    </div>
+    <script>
+      function onIncon(x) {
+        //     var element = document.getElementById("line1"); // Get the element by its ID
+        //     var element2 = document.getElementById("line2"); // Get the element by its ID
+        //     var element3 = document.getElementById("line3"); // Get the element by its ID
+
+        //         element.classList.add("line-1");
+        //         element2.classList.add("line-2");
+        //         element3.classList.add("line-3");
+        x.classList.toggle("icon-click");
+      }
+    </script>
+  </body>
+</html>

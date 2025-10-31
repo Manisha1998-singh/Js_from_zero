@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body  onload="window.alert('Page successfully loaded');">
+        <div id="changeText">hii manisha</div>
+        <div onclick="clickEvent();">Click me</div>
+        <div onmouseover="mousrHover()" id="textMouseChange"> hii its me Manisha Singh.</div>
+        <button onfocus="onFocusChangeclr()" id="btn"> Save</button>
+        <input onkeydown="keyDown()" />
+        <script type="text/javascript">
+            var changeText = document.getElementById("changeText");
+           //Click Event
+            function clickEvent(){
+                changeText.innerText = 'Click is successful. thank you for clicking me.'            
+            }
+            //mousrHover Event
+            function mousrHover(){
+                var changeTextmouse = document.getElementById("textMouseChange");
+                changeTextmouse.innerText = 'MouseHover is successful. thank you for clicking me.'            
+            }
+            function onFocusChangeclr(){
+                var changeTextmouse = document.getElementById("textMouseChange");
+                changeTextmouse.innerText = 'onfocus is successful. thank you for clicking me.' 
+                document.getElementById("btn").style.background = "red";           
+            }
+            function keyDown(){
+                alert("hii manisha");
+            }
+
+
+        </script>
+    </body>
+</html>

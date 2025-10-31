@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <form class="Form1">
+            <input type="button" value="comment" onclick="showcommentform()">
+            <div id="formSection"></div>
+        </form>
+      <script type="text/javascript">
+        var checkform = true;
+        function showcommentform() {
+        var data = "Name<br> <input type='text'> <br> Comment: <br> <textarea type='text' height='220px' width='70px'></textarea> <br> <br> <button type='submit' >Submit </button>";
+        document.getElementById("formSection").innerHTML = data;
+        if(checkform){
+            document.getElementById("formSection").innerHTML = data;
+            checkform = false;
+        }else{
+            document.getElementById("formSection").innerHTML = '';
+            checkform = true;
+        }
+        };
+      </script>
+    </body>
+</html>
