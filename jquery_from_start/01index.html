@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div>show data by url using jquery.</div>
+    <div>work on show data from url or get get data from url using jquery.</div>
+    <button id="loaddata">Click Me</button>
+    <div id="result"></div>
+    <script>
+      $("#loaddata").click(function () {
+        $.get("https://jsonplaceholder.typicode.com/posts", function (data) {
+          $.each(data, function (i, user) {
+            $("#result").append(
+              "<p>" + i + user.title + "<br>" + user.body + "</p>"
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
