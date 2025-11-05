@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery POST Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="sendBtn">Send Data</button>
+    <div id="result"></div>
+
+    <script>
+      $("#sendBtn").click(function () {
+        $.post(
+          "https://jsonplaceholder.typicode.com/posts",
+          {
+            title: "Frontend Developer",
+            body: "Learning how to send data using POST in jQuery",
+            userId: 1,
+          },
+          function (response) {
+            $("#result").html(
+              "<pre>" + JSON.stringify(response, null, 2) + "</pre>"
+            );
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

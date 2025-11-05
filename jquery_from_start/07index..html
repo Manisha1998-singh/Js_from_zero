@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery POST Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="sendBtn">Send Data</button>
+    <div id="result">
+      <p class="price">10</p>
+      <p class="price">11</p>
+      <p class="price">12</p>
+    </div>
+
+    <script>
+      $("#sendBtn").click(function (data) {
+        let newarr = [];
+        $(".price").each(function () {
+          newarr.push(Number($(this).text()));
+        });
+        alert(newarr);
+        alert(typeof newarr);
+        console.log(Array.isArray(newarr)); // true
+      });
+    </script>
+  </body>
+</html>
