@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div>another way to show data by url using jquery.</div>
+    <div>work on show data from url or get get data from url using jquery.</div>
+    <button id="loaddata">Click Me</button>
+    <div id="result"></div>
+    <script>
+      $("#loaddata").click(function () {
+        $.ajax({
+          url: "https://jsonplaceholder.typicode.com/users",
+          type: "GET",
+          success: function (data) {
+            let output = "<ul>";
+            $.each(data, function (i, user) {
+              output += "<li><b>" + user.name + "</b>-" + user.email + "</li>";
+            });
+            output += "</ul>";
+            $("#result").html(output);
+          },
+          error: function () {
+            $("#result").html("Error loading data.");
+          },
+        });
+      });
+      $("#loaddata").dblclick(function () {
+        $("#result").hide();
+      });
+    </script>
+  </body>
+</html>
