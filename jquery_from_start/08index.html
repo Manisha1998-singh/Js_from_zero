@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="addBtn">Add New Button</button>
+    <div id="container"></div>
+
+    <script>
+      // When we click the "Add New Button"
+      $("#addBtn").click(function () {
+        $("#container").append('<button class="newBtn">New Button</button>');
+      });
+
+      // Try to handle clicks on new buttons which is created dynamically.
+
+      $(".newBtn").click(function () {
+        alert("New button clicked!");
+      });
+    </script>
+  </body>
+</html>
