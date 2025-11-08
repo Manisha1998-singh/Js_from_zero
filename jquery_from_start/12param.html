@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+</head>
+<body>
+     <p class="price">12</p>
+    <div id="result"></div>
+    <button class="btnClick">Click Me</button>
+    <script>
+          $(document).ready(function () {
+T//he param() method creates a serialized representation of an array or an object.
+
+//The serialized values can be used in the URL query string when making an AJAX request.
+            let objectName = new Object();
+            objectName.name = "Manisha",
+            objectName.lastName = "Singh"
+            objectName.age = 25;
+        $(".btnClick").click(function () {
+          $("#result").text($.param(objectName))
+      });
+    })
+    </script>
+</body>
+</html>

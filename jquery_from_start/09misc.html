@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <button id="dataSet">
+      This button is ues for Attach data to div element
+    </button>
+    <button id="dataGet">This button is ues for get data to div element</button>
+    <div id="result"></div>
+    <script>
+      //No — you can’t directly use the div ID (#result) in place of the "setData" key when using jQuery’s .data() method.
+      //It won’t behave as you expect, because #result is just a CSS selector, not a key name.
+      //.data() expects a string key (like "message", "userInfo", etc.), not an ID or selector.
+      $("#dataSet").click(function () {
+        $("#result").data(
+          "setData",
+          "Hello cutie Im here to set value for div"
+        );
+      });
+      $("#dataGet").click(function () {
+        alert($("#result").data("setData"));
+      });
+    </script>
+  </body>
+</html>
