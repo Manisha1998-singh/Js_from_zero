@@ -1,4 +1,4 @@
-🟡 JavaScript From Zero
+🟡 JavaScript From Zero 
 
 A beginner-friendly project to learn JavaScript from the ground up, covering all the essential concepts with hands-on examples and practice code.
 
@@ -14,31 +14,31 @@ A beginner-friendly project to learn JavaScript from the ground up, covering all
 
 📚 Topics Covered
 
-Variables & Data Types
+✔ Variables & Data Types
 
-Operators
+✔ Operators
 
-Functions (normal, arrow functions)
+✔ Functions (normal, arrow functions)
 
-Conditional Statements
+✔ Conditional Statements
 
-Loops (for, while, for-of, for-in)
+✔ Loops (for, while, for-of, for-in)
 
-Arrays & Objects
+✔ Arrays & Objects
 
-Array Methods (map, filter, reduce, etc.)
+✔ Array Methods (map, filter, reduce, etc.)
 
-String Methods
+✔ String Methods
 
-DOM Manipulation
+✔ DOM Manipulation
 
-Events & Event Listeners
+✔ Events & Event Listeners
 
-LocalStorage
+✔ LocalStorage
 
-Fetch API basics
+✔ Fetch API basics
 
-ES6 Features (let/const, template strings, destructuring, spread/rest)
+✔ ES6 Features (let/const, template strings, destructuring, spread/rest)
 
 📁 Folder Structure
 js_from_zero/
