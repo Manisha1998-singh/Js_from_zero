@@ -63,8 +63,6 @@ Clone the repository
 git clone https://github.com/your-username/js_from_zero.git
 
 
-Open index.html in a browser
-
 Start exploring the examples and practice files
 
 💡 Purpose
